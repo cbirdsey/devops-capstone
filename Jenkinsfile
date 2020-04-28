@@ -60,19 +60,15 @@ pipeline {
 		}
 		stage('Create conf file cluster blue') {
 			steps {
-				withAWS(region:'us-west-2', credentials:'aws-static') {
-					sh '''
-						aws eks --region us-west-2 update-kubeconfig --name blue
-					'''
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'aws eks --region us-west-2 update-kubeconfig --name blue'
 				}
 			}
 		}
 		stage('Create conf file cluster green') {
 			steps {
-				withAWS(region:'us-west-2', credentials:'aws-static') {
-					sh '''
-						aws eks --region us-west-2 update-kubeconfig --name green
-					'''
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'aws eks --region us-west-2 update-kubeconfig --name green'
 				}
 			}
 		}
