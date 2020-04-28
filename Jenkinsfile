@@ -18,7 +18,6 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
 		        	sh 'docker login -u $USERNAME -p $PASSWORD'
 					sh 'docker push cbirdsey1/devopscapstone'
-					sh 'docker run -d -p 80:80 cbirdsey1/devopscapstone'
 				}
 			}
         }
