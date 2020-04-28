@@ -4,16 +4,14 @@ metadata:
   name: blue
   labels:
     app: blue
-    tier: blue
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      tier: blue
+    app: blue
   template:
     metadata:
       labels:
-        tier: blue
+        app: blue
     spec:
       containers:
       - name: blue

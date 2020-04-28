@@ -4,16 +4,14 @@ metadata:
   name: green
   labels:
     app: green
-    tier: green
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      tier: green
+     app: green
   template:
     metadata:
       labels:
-        tier: green
+        app: green
     spec:
       containers:
       - name: green
