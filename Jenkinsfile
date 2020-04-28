@@ -9,7 +9,7 @@ pipeline {
 		stage('Build image') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
-					sh 'docker build -t cbirdsey1/devopscapstone .'
+					sh 'docker build -t="cbirdsey1/devopscapstone" github.com/dockerfile/nginx'
 				}
 			}
         }
