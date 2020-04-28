@@ -9,7 +9,6 @@ pipeline {
 		stage('Build image') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
-					sh 'docker build -t="dockerfile/ubuntu" github.com/dockerfile/ubuntu'
 					sh 'docker build -t cbirdsey1/devopscapstone .'
 				}
 			}
