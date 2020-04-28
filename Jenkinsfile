@@ -42,7 +42,7 @@ pipeline {
 		}
 		stage('Create green cluster') {
 			steps {
-				withAWS(region:us-west-2', credentials:'jenkins') {
+				withAWS(region:'us-west-2', credentials:'jenkins') {
 					sh '''
 						eksctl create cluster \
 						--name green \
