@@ -72,6 +72,34 @@ pipeline {
 				}
 			}
 		}
-     }
+		stage('Deploy blue container') {
+			steps {
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'kubectl apply -f ./blue-controller.yaml'
+				}
+			}
+		}
+		stage('Deploy green container') {
+			steps {
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'kubectl apply -f ./green-controller.yaml'
+				}
+			}
+		}
+		stage('Create blue service') {
+			steps {
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'kubectl apply -f ./blue-service.yaml'
+				}
+			}
+		}
+ 		stage('Create green service') {
+			steps {
+				withAWS(region:'us-west-2', credentials:'jenkins') {
+					sh 'kubectl apply -f ./green-service.yaml'
+				}
+			}
+		}
+    }
 }
 

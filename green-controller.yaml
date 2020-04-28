@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: green
+  labels:
+    app: green
+    tier: green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: green
+  template:
+    metadata:
+      labels:
+        tier: green
+    spec:
+      containers:
+      - name: green
+        image: cbirdsey1/devopscapstone
