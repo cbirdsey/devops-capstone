@@ -23,6 +23,8 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 # Define working directory.
 WORKDIR /etc/nginx
 
+COPY index.html /var/www/html
+
 # Define default command.
 CMD ["nginx"]
 
